@@ -1,5 +1,6 @@
 var express =  require('express');
 var cors = require('cors');
+const cool = require('cool-ascii-faces')
 
 const app = express();
 app.use(cors()); // enable cross origin resource sharing.
@@ -18,6 +19,8 @@ app.get('/users', function(req, res) {
     {"id": 3,"firstName":"Tina","lastName":"Lee","email":"lee.tina@hotmail.com"}
   ]);
 });
+
+app.get('/cool', (req, res) => res.send(cool()));
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port')); 
